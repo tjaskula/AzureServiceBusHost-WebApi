@@ -1,2 +1,1 @@
-This is the demo application for Franch Techdays 2013.
-Talk is about "Asp.Net Web Api, SignalR, UX : le futur"
+This is the expermimentation of Azure Service Bus Relay host for ASP.NET Web API. This is very heavily inspired from the implementation of the original HttpSelfHostServer from the ASP.NET Web API.
