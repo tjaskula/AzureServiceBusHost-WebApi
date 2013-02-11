@@ -6,9 +6,9 @@ namespace AzureServiceBusHost.Console
 {
     public class TestController : ApiController
     {
-        public string Get(string id)
+        public string Get(string message)
         {
-            return "Message via the service bus host : " + id;
+            return "Vous avez dit : " + message;
         }
 
         public HttpResponseMessage Post()
