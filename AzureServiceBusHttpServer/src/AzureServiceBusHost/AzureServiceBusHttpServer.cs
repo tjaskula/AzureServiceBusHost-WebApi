@@ -244,14 +244,14 @@ namespace Tjaskula.AzureServiceBusHost
                 var binding = new WebHttpRelayBinding(EndToEndWebHttpSecurityMode.None, RelayClientAuthenticationType.None);
 
                 // Get it configured
-                BindingParameterCollection bindingParameters = server._configuration.ConfigureBinding(binding);
+				BindingParameterCollection bindingParameters = server._configuration.ConfigureBinding(binding);
                 if (bindingParameters == null)
                 {
                     bindingParameters = new BindingParameterCollection();
                 }
 
                 // Build channel listener
-                server._listener = binding.BuildChannelListener<IReplyChannel>(server._configuration.BaseAddress, bindingParameters);
+				server._listener = binding.BuildChannelListener<IReplyChannel>(server._configuration.BaseAddress, bindingParameters);
                 
                 if (server._listener == null)
                 {

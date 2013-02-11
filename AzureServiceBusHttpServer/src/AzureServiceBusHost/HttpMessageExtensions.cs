@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.ServiceModel.Channels;
+using System.Text;
+using Microsoft.ServiceBus.Web;
 
 namespace Tjaskula.AzureServiceBusHost
 {
@@ -110,9 +113,11 @@ namespace Tjaskula.AzureServiceBusHost
             {
                 throw new ArgumentNullException("response");
             }
+			
+	        var message = Message.CreateMessage(MessageVersion.None, "GETRESPONSE", response.Content.ReadAsAsync<object>().Result);
 
-            var message = Message.CreateMessage(MessageVersion.None, response.RequestMessage.Method.Method, response.Content.ReadAsAsync<object>().Result);
-            HttpResponseMessageProperty responseProperty = new HttpResponseMessageProperty();
+			//var message = StreamMessageHelper.CreateMessage(MessageVersion.None, "GETRESPONSE", output => {response.Content.CopyToAsync(output).Wait();});
+            var responseProperty = new HttpResponseMessageProperty();
             CopyHeadersToNameValueCollection(response.Headers, responseProperty.Headers);
             HttpContent content = response.Content;
             if (content != null)

@@ -65,9 +65,12 @@
     <Compile Include="AzureServiceBusConfiguration.cs" />
     <Compile Include="AzureServiceBusHttpServer.cs" />
     <Compile Include="CompletedAsyncResult.cs" />
+    <Compile Include="JsonStreamBodyWriter.cs" />
+    <Compile Include="XmlBodyWriter.cs" />
     <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="HttpMessageExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RawContentTypeMapper.cs" />
     <Compile Include="ServiceConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
